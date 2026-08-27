@@ -1,17 +1,20 @@
 ---
-// Welcome to Astro! Everything between these triple-dash code fences
-// is your "component frontmatter". It never runs in the browser.
-console.log('This runs in your terminal, not the browser!');
+import { getCollection } from "astro:content";
+import { Image } from "astro:assets";
+const posts = await getCollection('blog');
 ---
-<!-- Below is your "component template." It's just HTML, but with
-    some magic sprinkled in to help you build great templates. -->
-<html>
-  <body>
-    <h1>Hello, World!</h1>
-  </body>
-</html>
+<head>
+<meta charset="utf-8">
 <style>
   h1 {
     color: orange;
   }
 </style>
+</head>
+<h1>Posts</h1>
+<ul>
+  {posts.map(post => (
+    <li><a href={`/blog/${post.id}`}>{post.data.titulo}</a></li>
+    <Image src={post.data.portada} alt={post.data.portadaAlt} />
+  ))}
+</ul>
