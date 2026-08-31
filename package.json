@@ -18,7 +18,8 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "new-post": "node scripts/new-post.mjs"
+    "new-post": "node scripts/new-post.mjs",
+    "delete-post": "node scripts/delete-post.mjs"
   },
   "dependencies": {
     "astro": "^7.2.2"

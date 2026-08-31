@@ -12,5 +12,13 @@ const blog = defineCollection({
         portadaAlt: z.string()
     })
 })
-
-export const collections = {blog}
+const portafolio = defineCollection({
+    loader: glob({base:'./src/content/portafolio',pattern:'**/*.{md,mdx}'}),
+    schema: z.object({
+        nombre: z.string(),
+        descripcion: z.string(),
+        repoUrl: z.string(),
+        demoUrl: z.string().optional()
+    })
+})
+export const collections = {blog,portafolio}

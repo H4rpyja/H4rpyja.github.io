@@ -38,7 +38,7 @@ const { Content } = await render(entry);
     <meta charset="utf-8">
 </head>
 <h1>{entry.data.titulo}</h1>
-<p>Publicado: {entry.data.fechaPub.toString()}</p>
+<p>Publicado: {entry.data.fechaPub.toLocaleDateString("en-GB")}</p>
 <Content />
 `
 
