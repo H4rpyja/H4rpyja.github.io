@@ -1,0 +1,9 @@
+---
+import Layout from './global.astro';
+const { titleBlog, date, update } = Astro.props;
+---
+<Layout title={titleBlog}>
+    <h1>{titleBlog}</h1>
+    <p>Publicado: {date}</p>
+{update?<p>Actualizado: {update}</p>:<p></p>}
+</Layout>

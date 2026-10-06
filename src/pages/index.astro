@@ -1,27 +1,21 @@
 ---
 import { getCollection } from "astro:content";
 import { Image } from "astro:assets";
+import Layout from '../layouts/global.astro';
 const posts = await getCollection('blog');
+const masReciente = posts.sort((a,b) => {return b.data.fechaPub.valueOf() - a.data.fechaPub.valueOf()})[0];
 const proyectos = await getCollection('portafolio');
 ---
-<head>
-<meta charset="utf-8">
-<style>
-  h1 {
-    color: orange;
-  }
-</style>
-</head>
+<Layout title="Blog">
 <h1>Posts</h1>
-<ul>
-  {posts.map(post => (
-    <li><a href={`/blog/${post.id}`}>{post.data.titulo}</a></li>
-    <Image src={post.data.portada} alt={post.data.portadaAlt} />
-  ))}
-</ul>
+<article>
+    <h2><a href={`/blog/${masReciente.id}`}>{masReciente.data.titulo}</a></h2>
+    <Image src={masReciente.data.portada} alt={masReciente.data.portadaAlt}/>
+</article>
 <h1>Proyectos</h1>
 <ul>
     {proyectos.map(proyecto =>(
         <li><a href={`/portafolio/${proyecto.id}`}>{proyecto.data.nombre}</a></li>
     ))}
 </ul>
+</Layout>
