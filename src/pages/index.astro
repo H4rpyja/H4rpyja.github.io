@@ -7,15 +7,19 @@ const masReciente = posts.sort((a,b) => {return b.data.fechaPub.valueOf() - a.da
 const proyectos = await getCollection('portafolio');
 ---
 <Layout title="Blog">
-<h1>Posts</h1>
-<article>
-    <h2><a href={`/blog/${masReciente.id}`}>{masReciente.data.titulo}</a></h2>
-    <Image src={masReciente.data.portada} alt={masReciente.data.portadaAlt}/>
-</article>
-<h1>Proyectos</h1>
-<ul>
-    {proyectos.map(proyecto =>(
-        <li><a href={`/portafolio/${proyecto.id}`}>{proyecto.data.nombre}</a></li>
-    ))}
-</ul>
+    <div class="index">
+
+  
+        <h1>Posts</h1>
+        <article>
+            <h2><a href={`/blog/${masReciente.id}`}>{masReciente.data.titulo}</a></h2>
+            <Image src={masReciente.data.portada} alt={masReciente.data.portadaAlt}/>
+        </article>
+        <h1>Proyectos</h1>
+        <ul>
+            {proyectos.map(proyecto =>(
+                <li><a href={`/portafolio/${proyecto.id}`}>{proyecto.data.nombre}</a></li>
+            ))}
+        </ul>
+    </div>
 </Layout>

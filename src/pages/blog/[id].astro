@@ -1,0 +1,19 @@
+---
+import LayoutBlog from '../../layouts/blog.astro'
+import { getCollection, render} from "astro:content"
+export async function getStaticPaths() {
+    const posts = await getCollection('blog');
+    return posts.map(post =>({
+        params: {id: post.id},
+        props: { post }
+    }));
+}
+
+const {post} = Astro.props
+const {Content} = await render(post)
+
+const fechaAct = post.data.fechaAct ? post.data.fechaAct.toLocaleDateString("en-GB") : post.data.fechaAct
+---
+<LayoutBlog titleBlog={post.data.titulo} date={post.data.fechaPub.toLocaleDateString("en-GB")} update={fechaAct} cover={post.data.portada} coverAlt={post.data.portadaAlt}>
+<Content />
+</LayoutBlog>

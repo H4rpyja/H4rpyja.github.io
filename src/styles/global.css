@@ -1,4 +1,70 @@
 body{
-    background-color: black;
+    background: linear-gradient(#000000 50%,#ffffff) ;
     color: white;
+    margin: 2vw;
+}
+.marco{
+    margin: 2vw;
+    padding: 1vw;
+    border: 2mm ridge #ffffff;
+    background-color: black;  
+    display: flex;
+    flex-direction: row;
+
+}
+.post{
+    width: 80%;    
+    border-right: thick double white;
+    overflow-y: auto;
+    height: 100vh;
+}
+h1{
+    text-align: center;
+}
+.texto{
+    text-align: justify;
+}
+p.fecha{
+    text-align: left;
+}
+
+.lateral{
+    width: 20%;
+    text-align: center;
+    
+}
+img.portada{
+    display: block;
+    margin: auto;
+}
+.contenedorPortada{
+    margin: auto;
+    text-align: center;
+    
+}
+hr {
+  border: none;
+  border-top: 3px double white;
+  color: white;
+  overflow: visible;
+  text-align: center;
+  height: 5px;
+  margin-right: 2%;
+}
+
+hr::after {
+  background: black;
+  content: "❀";
+  padding: 0 4px;
+  position: relative;
+  top: -13px;
+  color: white
+}
+.index{
+    margin: 2vw;
+    padding: 1vw;
+    border: 2mm ridge #ffffff;
+    background-color: black;  
+    display: flex;
+    flex-direction: column;
 }

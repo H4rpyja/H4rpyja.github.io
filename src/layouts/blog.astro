@@ -1,9 +1,29 @@
 ---
 import Layout from './global.astro';
-const { titleBlog, date, update } = Astro.props;
+import { Image } from 'astro:assets';
+const { titleBlog, date, update, cover, coverAlt } = Astro.props;
 ---
 <Layout title={titleBlog}>
-    <h1>{titleBlog}</h1>
-    <p>Publicado: {date}</p>
-{update?<p>Actualizado: {update}</p>:<p></p>}
+  
+  
+        <div class="marco">
+            <div class="post">
+                <h1>{titleBlog}</h1>
+                <Image src={cover} alt={coverAlt} class="portada"/>
+                <div class="contenedorPortada">
+                    <p>{coverAlt}</p>
+                </div>
+                <p>Publicado: {date}</p>
+            {update?<p>Actualizado: {update}</p>:<p></p>}
+                <hr ?>
+                <div class="texto">
+                    <slot />
+                </div>
+            </div>
+            <div class="lateral">
+                <p>Prueba</p>
+            </div>
+        </div>
+        
+ 
 </Layout>
