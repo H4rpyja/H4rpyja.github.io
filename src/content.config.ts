@@ -9,7 +9,8 @@ const blog = defineCollection({
         fechaPub: z.coerce.date(),
         fechaAct: z.coerce.date().optional(),
         portada: image(),
-        portadaAlt: z.string()
+        portadaAlt: z.string(),
+        etiquetas: z.array(z.string()).default([])
     })
 })
 const portafolio = defineCollection({

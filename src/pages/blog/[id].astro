@@ -12,8 +12,8 @@ export async function getStaticPaths() {
 const {post} = Astro.props
 const {Content} = await render(post)
 
-const fechaAct = post.data.fechaAct ? post.data.fechaAct.toLocaleDateString("en-GB") : post.data.fechaAct
+//const fechaAct = post.data.fechaAct ? post.data.fechaAct.toLocaleDateString("en-GB") : post.data.fechaAct
 ---
-<LayoutBlog titleBlog={post.data.titulo} date={post.data.fechaPub.toLocaleDateString("en-GB")} update={fechaAct} cover={post.data.portada} coverAlt={post.data.portadaAlt}>
+<LayoutBlog post={post}>
 <Content />
 </LayoutBlog>

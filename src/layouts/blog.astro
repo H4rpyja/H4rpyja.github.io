@@ -1,20 +1,27 @@
 ---
 import Layout from './global.astro';
+import { getCollection } from "astro:content";
 import { Image } from 'astro:assets';
-const { titleBlog, date, update, cover, coverAlt } = Astro.props;
+//const { titleBlog, date, update, cover, coverAlt } = Astro.props;
+const { post } = Astro.props;
+const posts = await getCollection('blog');
+const fechaAct = post.data.fechaAct ? post.data.fechaAct.toLocaleDateString("en-GB") : post.data.fechaAct
+const postsN = posts.filter((p: any) =>{
+    return !(p.id === post.id);
+})
 ---
-<Layout title={titleBlog}>
+<Layout title={post.data.titulo}>
   
   
         <div class="marco">
             <div class="post">
-                <h1>{titleBlog}</h1>
-                <Image src={cover} alt={coverAlt} class="portada"/>
+                <h1>{post.data.titulo}</h1>
+                <Image src={post.data.portada} alt={post.data.portadaAlt} class="portada"/>
                 <div class="contenedorPortada">
-                    <p>{coverAlt}</p>
+                    <p>{post.data.portadaAlt}</p>
                 </div>
-                <p>Publicado: {date}</p>
-            {update?<p>Actualizado: {update}</p>:<p></p>}
+                <p>Publicado: {post.data.fechaPub.toLocaleDateString("en-GB")}</p>
+            {fechaAct?<p>Actualizado: {fechaAct}</p>:<p></p>}
                 <hr ?>
                 <div class="texto">
                     <slot />
@@ -22,6 +29,12 @@ const { titleBlog, date, update, cover, coverAlt } = Astro.props;
             </div>
             <div class="lateral">
                 <p>Prueba</p>
+                <hr>
+                <ul>
+            {postsN.map(p =>(
+                <li><a href={`/blog/${p.id}`}>{p.data.titulo}</a></li>
+            ))}
+                </ul>
             </div>
         </div>
         

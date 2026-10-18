@@ -22,25 +22,12 @@ descripcion: "Agregue aquí la descripción"
 fechaPub: ${pubDate}
 portada: "../../assets/gato.webp"
 portadaAlt: "lol"
+etiquetas: []
 ---
 
 *Agregue aquí el contenido*
 `
-const codigo = `---
-import { getEntry, render } from "astro:content";
-const entry =  await getEntry('blog','${slug}');
-if(!entry){
-    throw new Error("Entrada no encontrada");
-}
-const { Content } = await render(entry);
----
-<head>
-    <meta charset="utf-8">
-</head>
-<h1>{entry.data.titulo}</h1>
-<p>Publicado: {entry.data.fechaPub.toLocaleDateString("en-GB")}</p>
-<Content />
-`
+
 
 fs.writeFileSync(`src/content/blog/${slug}.md`,frontmatter);
 fs.writeFileSync(`src/pages/blog/${slug}.astro`,codigo);
