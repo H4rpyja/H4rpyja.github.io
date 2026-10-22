@@ -1,0 +1,32 @@
+---
+import { getCollection } from "astro:content";
+import LayoutEtiquetas from '../../layouts/etiquetas.astro'
+import { Image } from "astro:assets";
+export async function getStaticPaths(){
+    const posts = await getCollection('blog');
+    const etiquetas = [...new Set(posts.flatMap((post) => post.data.etiquetas))];
+    return etiquetas.map((etiqueta) => ({
+    params: { etiqueta },
+    props: {
+      posts: posts
+        .filter((post) => post.data.etiquetas.includes(etiqueta))
+        .sort((a, b) => b.data.fechaPub.valueOf() - a.data.fechaPub.valueOf()),
+    },
+  }));
+     
+}
+const { etiqueta } = Astro.params
+const { posts } =  Astro.props
+
+---
+<LayoutEtiquetas etiqueta={etiqueta}>
+<h1 class="carta-encabezado">"{etiqueta}"</h1>
+
+    {posts.map((post) => (
+        <section class="carta carta-media">
+        <a href={`/blog/${post.id}`}>{post.data.titulo}</a>
+        <p>{post.data.descripcion}</p>
+        </section>
+    ))}
+
+</LayoutEtiquetas>

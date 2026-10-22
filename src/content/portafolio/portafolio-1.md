@@ -3,6 +3,6 @@ nombre: "Portafolio 1"
 descripcion: "Prueba del portafolio"
 repoUrl: "https://github.com/H4rpyja/H4rpyja.github.io"
 ---
-### Esta es una descripción más larga del proyecto
+### Aquí pondría mi proyecto... SI TUVIERA UNO
 
 ![Felino](../../assets/gato.webp)

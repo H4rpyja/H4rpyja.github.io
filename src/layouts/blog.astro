@@ -13,30 +13,46 @@ const postsN = posts.filter((p: any) =>{
 <Layout title={post.data.titulo}>
   
   
-        <div class="marco">
-            <div class="post">
-                <h1>{post.data.titulo}</h1>
-                <Image src={post.data.portada} alt={post.data.portadaAlt} class="portada"/>
-                <div class="contenedorPortada">
-                    <p>{post.data.portadaAlt}</p>
+       
+           <div class="marco">
+
+                <div class="post">
+
+                
+                    <h1 class="carta-encabezado">{post.data.titulo}</h1>
+                    <Image src={post.data.portada} alt={post.data.portadaAlt} class="portada"/>
+                    <div class="contenedorPortada">
+                        <p>{post.data.portadaAlt}</p>
+                    </div>
+                    <p>Publicado: {post.data.fechaPub.toLocaleDateString("en-GB")}</p>
+                {fechaAct?<p>Actualizado: {fechaAct}</p>:<p></p>}
+                    <p>Etiquetas:</p> 
+                    <nav class="menu">
+                    {post.data.etiquetas.map((etiqueta: unknown)=>(
+                        <a class="enlace-menu" href={`../etiquetas/${etiqueta}`}>{etiqueta}</a>
+                    ))}
+                    </nav>
+                    <hr ?>
+                    <div class="texto">
+                        <slot />
+                    </div>
                 </div>
-                <p>Publicado: {post.data.fechaPub.toLocaleDateString("en-GB")}</p>
-            {fechaAct?<p>Actualizado: {fechaAct}</p>:<p></p>}
-                <hr ?>
-                <div class="texto">
-                    <slot />
-                </div>
-            </div>
+           </div>
+            <!--
             <div class="lateral">
                 <p>Prueba</p>
                 <hr>
+                {post.data.etiquetas.map((etiqueta: unknown)=>(
+                    <a href={`../etiquetas/${etiqueta}`}>{etiqueta}</a>
+                ))}
                 <ul>
             {postsN.map(p =>(
                 <li><a href={`/blog/${p.id}`}>{p.data.titulo}</a></li>
             ))}
                 </ul>
             </div>
-        </div>
+            -->
+            
         
  
 </Layout>

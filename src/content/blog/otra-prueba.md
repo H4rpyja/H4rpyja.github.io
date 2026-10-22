@@ -4,6 +4,7 @@ descripcion: "Agregue aquí la descripción"
 fechaPub: 2026-08-29
 portada: "../../assets/gato.webp"
 portadaAlt: "lol"
+etiquetas: ["prueba"]
 ---
 
 *Agregue aquí el contenido*

@@ -2,3 +2,16 @@
 import Layout from './global.astro';
 const {name, desc, repoUrl, demoUrl} = Astro.props;
 ---
+<Layout titulo={name}>
+    <section class="carta" style="min-width: 75%;">
+        <header class="carta-encabezado">
+        <h1>{name}</h1>    
+        </header>
+        
+        <h2>{desc}</h2>
+        <a href={repoUrl}>Repo</a>
+        <a href={demoUrl}>Demo</a>
+        <slot />
+    </section>
+    
+</Layout>

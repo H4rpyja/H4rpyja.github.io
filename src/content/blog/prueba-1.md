@@ -4,6 +4,7 @@ descripcion: "Prueba de script"
 fechaPub: 2026-08-23
 portada: "../../assets/gato.webp"
 portadaAlt: "lol"
+etiquetas: ["prueba"]
 ---
 # Nada que ver
 ***

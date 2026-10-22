@@ -1,0 +1,9 @@
+---
+import Layout from './global.astro'
+const { etiqueta} = Astro.props
+---
+<Layout title={etiqueta}>
+<div class="marco-etiquetas">
+    <slot />
+</div>    
+</Layout>

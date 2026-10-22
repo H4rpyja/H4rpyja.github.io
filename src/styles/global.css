@@ -1,5 +1,5 @@
 body{
-    background: linear-gradient(#000000 50%,#ffffff) ;
+    background: linear-gradient(var(--fondo) 50%,var(--borde)) ;
     color: white;
     margin: 2vw;
     font-family: "Roboto Mono", monospace;
@@ -11,16 +11,14 @@ body{
     }
 .marco{
 
-    border: thick double white;
+    border: var(--borde-forma) var(--borde);
     background-color: black;  
-    display: flex;
-    flex-direction: row;
+    width: 80%;
 
 }
 .post{
     margin: 2vw;
     padding: 1vw;
-    width: 80%;    
     overflow-y: auto;
     height: 100vh;
 }
@@ -35,9 +33,10 @@ p.fecha{
 }
 
 .lateral{
-    min-width: 20%;
+    max-width: 20%;
     text-align: center;
-    border: thick double white;
+    border: var(--borde-forma) var(--borde);
+    padding: 1.5rem 1rem;
 }
 img.portada{
     display: block;
@@ -50,12 +49,11 @@ img.portada{
 }
 hr {
   border: none;
-  border-top: 3px double white;
-  color: white;
+  border-top: 3px double var(--borde);
+  color: var(--borde);
   overflow: visible;
   text-align: center;
   height: 5px;
-  margin-right: 2%;
 }
 
 hr::after {
@@ -64,11 +62,11 @@ hr::after {
   padding: 0 4px;
   position: relative;
   top: -13px;
-  color: white
+  color: var(--borde)
 }
 .principal{
    
-    border: thick double white;
+    border: var(--borde-forma) var(--borde);
     background-color: black;  
     display: flex;
     flex-direction: row;
@@ -92,10 +90,8 @@ hr::after {
 }
 .carta{
     background: black;
-    border-right:  thin white;
-    border-bottom: 1px white;
-    border: thick double white;
-    border-color: white;
+    border: var(--borde-forma) var(--borde);
+
     padding: 1.25rem;
     display: flex;
     flex-direction: column;
@@ -107,11 +103,67 @@ hr::after {
     --borde: white;
     --texto: white;
     --anchura-lateral: 320px;
-    --regla: 1px;
+    --regla: 10px;
     --max-anch-pag: 72rem;
-
+    --borde-forma:  double;
 }
 img{
     max-width: 100%;
     display: block;
+}
+.marco-etiquetas{
+    background-color: black;
+    min-height: 100%;  
+    min-width: 80%;
+}
+.carta-encabezado{
+    padding: 7px;
+    background: linear-gradient(to left,var(--fondo),var(--borde));
+    display: flex;
+    color: var(--fondo);
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 1rem;
+}
+.titulo-index{
+    font-family: "Cinzel";
+    font-weight: 700;
+    font-size: 38px;
+    letter-spacing: 1px;
+    color: var(--texto);
+}
+.lateral-arriba{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: var(--regla) var(--borde);
+    padding-bottom: 7px;
+    margin-bottom: 7px;
+}
+.menu{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    margin-top: 5px;
+}
+.enlace-menu{
+    border: 1px solid var(--borde);
+    text-decoration: none;
+    padding: 3px 6px;
+    display: inline-block;
+    font-size: 15px;
+    line-height: 1.3;
+}
+.enlace-menu:hover{
+    border: 1px solid var(--borde);
+    text-decoration: none;
+    padding: 3px 6px;
+    display: inline-block;
+    font-size: 15px;
+    line-height: 1.3;
+    color: var(--fondo);
+    background: var(--texto);
+}
+a{
+    color: var(--texto);
 }

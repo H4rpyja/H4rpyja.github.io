@@ -1,17 +1,25 @@
 ---
 import { getCollection } from "astro:content";
 import { Image } from "astro:assets";
-import osoPolar from "../assets/osopolarmejor.jpeg"
+import osoPolar from "../assets/osopolarmejor.jpeg";
+import gato2 from "../assets/gato2.gif"
+import car from "../assets/car.png"
 import Layout from '../layouts/global.astro';
 const posts = await getCollection('blog');
 const masReciente = posts.sort((a,b) => {return b.data.fechaPub.valueOf() - a.data.fechaPub.valueOf()})[0];
 const proyectos = await getCollection('portafolio');
 ---
 <Layout title="Blog">
-    <div class="principal">
+    
         <div class="contenido">
             <section class="carta carta-ancha">
-                Intro
+               <header class="carta-encabezado">
+                    <b>Intro</b>
+                </header>
+                <p>
+                    Hola hola quíhubole. Este es un primer intento para mi blog/portafolio, sé que está feo pero podré mejorarlo (espero)
+                    El diseño está directamente inspirado por 
+                </p><a href="https://wriorango.neocities.org/">wriorango</a>
             </section>
             <section class="carta carta-chica">
                 <Image src={osoPolar} alt="nada" style="height:255px"/>
@@ -20,14 +28,23 @@ const proyectos = await getCollection('portafolio');
                 <Image src={masReciente.data.portada} alt={masReciente.data.portadaAlt} style="height:255px"/>
             </section>
             <section class="carta carta-chica">
+                <header class="carta-encabezado">
+                    <b>Lo último</b>
+                </header>
                 <h2><a href={`/blog/${masReciente.id}`}>{masReciente.data.titulo}</a></h2>
                
                 <p>{masReciente.data.descripcion}</p>
             </section>
             <section class="carta carta-chica">
-                <p>Otra wea por venir</p>
+                <header class="carta-encabezado">
+                    <b>Ahora</b>
+                </header>
+                <Image src={gato2} alt="lolol"/>
             </section>
             <section class="carta carta-ancha">
+                <header class="carta-encabezado">
+                    <b>Proyectos</b>
+                </header>
                 <ul>
                     {proyectos.map(proyecto =>(
                         <li><a href={`/portafolio/${proyecto.id}`}>{proyecto.data.nombre}</a></li>
@@ -35,15 +52,11 @@ const proyectos = await getCollection('portafolio');
                 </ul>
             </section>
             <section class="carta carta-chica">
-                <Image src={osoPolar} alt="nada" style="height:255px"/>
+                <Image src={car} alt="nada" />
             </section>
         
         </div>
-        <div class="lateral">
-            <p>
-                Hola desde lateral
-            </p>
-        </div>
         
-    </div>
+        
+    
 </Layout>

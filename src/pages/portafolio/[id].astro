@@ -1,0 +1,16 @@
+---
+import LayoutPort from '../../layouts/proyectos.astro';
+import { getCollection, render } from "astro:content";
+export async function getStaticPaths(){
+    const proyectos = await getCollection('portafolio');
+    return proyectos.map(proyecto => ({
+        params: {id:proyecto.id},
+        props: { proyecto }
+    }));
+};
+const {proyecto} = Astro.props;
+const {Content} = await render(proyecto);
+---
+<LayoutPort name={proyecto.data.nombre} desc={proyecto.data.descripcion} repoUrl={proyecto.data.repoUrl} demoUrl={proyecto.data.demoUrl}>
+<Content />
+</LayoutPort>
