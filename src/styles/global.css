@@ -139,6 +139,7 @@ img{
     border-bottom: var(--regla) var(--borde);
     padding-bottom: 7px;
     margin-bottom: 7px;
+    text-wrap: wrap;
 }
 .menu{
     display: flex;
