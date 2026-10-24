@@ -15,22 +15,26 @@ const { title } = Astro.props
         <title>{title}</title>
     </head>
     <body>
-        <div class="principal">
-           
-            <slot />
-            
-            <div class="lateral">
-                <div class="lateral-arriba">
-                    <p class="titulo-index">H4rpyja</p>
+        <div style="display: flex; flex-direction: column;">
+            <div class="principal">
+                <slot />
+                
+                <div class="lateral">
+                    <div class="lateral-arriba">
+                        <p class="titulo-index">H4rpyja</p>
 
+                    </div>
+                    <hr/>
+                    <Image src={ldeathnote} alt="foto" style="height:255px; border: double white;"/>
+                    <nav class="menu">
+                        <a class="enlace-menu" href="/index.html">Índice</a>
+                        <a class="enlace-menu" href="/blog/index.html">Blog</a>
+                        <a class="enlace-menu" href="/portafolio/index.html">Portafolio</a>
+                    </nav>
+                
                 </div>
-                <hr/>
-                <Image src={ldeathnote} alt="foto" style="height:255px"/>
-                <nav class="menu">
-                    <a class="enlace-menu" href="index.html">Índice</a>
-                    <a class="enlace-menu" href="blog/index.html">Blog</a>
-                </nav>
             </div>
+            <footer>2026 @ Motopapus</footer>
         </div>
     </body>
 </html>
