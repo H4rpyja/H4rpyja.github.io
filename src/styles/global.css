@@ -9,7 +9,8 @@ body{
     font-style: normal;
     min-height: auto;
     line-height: 1.6;
-    cursor: url("wide\ cursor.cur")
+    
+    cursor: url("/src/assets/cursores/chrome.cur"), auto;
 }
 .marco{
 
@@ -169,6 +170,7 @@ img{
 }
 a{
     color: var(--texto);
+    cursor: url("/src/assets/cursores/chrome-link.cur"),pointer;
 }
 .pag404{
     margin: 20%;
