@@ -6,15 +6,15 @@ const posts = await getCollection('blog');
 ---
 <Layout title="Blog">
     <div class="marco-etiquetas">
-<h1 class="carta-encabezado">Blog</h1>
-{posts.map((post)=>(
-    
+        <h1 class="carta-encabezado">Blog</h1>
+        {posts.map((post)=>(
+            
 
-        <section class="carta carta-media">
-        <a href={`/blog/${post.id}`}>{post.data.titulo}</a>
-        <p>{post.data.descripcion}</p>
-        </section>
-))}
+                <section class="carta carta-media">
+                <a href={`/blog/${post.id}`}>{post.data.titulo}</a>
+                <p>{post.data.descripcion}</p>
+                </section>
+        ))}
     </div>
 
 </Layout>

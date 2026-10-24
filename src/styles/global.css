@@ -9,7 +9,8 @@ body{
     font-style: normal;
     min-height: auto;
     line-height: 1.6;
-    }
+    cursor: url("wide\ cursor.cur")
+}
 .marco{
 
     border: var(--borde-forma) var(--borde);
