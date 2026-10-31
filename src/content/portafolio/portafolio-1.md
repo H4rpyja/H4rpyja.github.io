@@ -1,8 +1,6 @@
 ---
-nombre: "Portafolio 1"
-descripcion: "Prueba del portafolio"
-repoUrl: "https://github.com/H4rpyja/H4rpyja.github.io"
+nombre: "Cripto-C"
+descripcion: "Proyecto para aprender criptografía en C"
+repoUrl: "https://github.com/H4rpyja/Cripto-C"
 ---
-### Aquí pondría mi proyecto... SI TUVIERA UNO
-
-![Felino](../../assets/gato.webp)
+Proyecto de aprendizaje de criptografía en C. **No usar para proteger datos reales.**
